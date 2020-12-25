@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:petvet/screen/map_screen.dart';
 import 'package:petvet/widget/bottom_bar.dart';
 
 void main() => runApp(MyApp());
-
 
 class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
@@ -22,12 +22,11 @@ class _MyAppState extends State<MyApp> {
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
-
           body: TabBarView(
             physics: NeverScrollableScrollPhysics(),
             children: [
               // 홈
-              Container(
+              /*Container(
                 alignment: Alignment.center,
                 color: Colors.indigo,
                 child: Text(
@@ -36,7 +35,8 @@ class _MyAppState extends State<MyApp> {
                     fontSize: 20,
                   ),
                 ),
-              ),
+              ),*/
+              MyMap(),
               // 주변
               Container(
                 alignment: Alignment.center,

@@ -5,12 +5,11 @@ class Bottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      color: Colors.transparent,
+      color: Colors.white,
       child: TabBar(
         labelColor: Colors.white,
-        unselectedLabelColor: Colors.black38,
+        unselectedLabelColor: Colors.redAccent,
         indicatorSize: TabBarIndicatorSize.tab,
-        indicatorColor: Colors.transparent,
         indicator: BoxDecoration(
           border: Border.all(color: Colors.white, width: 7),
           gradient:

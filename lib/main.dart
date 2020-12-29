@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:petvet/screen/map_screen.dart';
-import 'package:petvet/widget/bottom_bar.dart';
-import 'package:petvet/widget/bottom_sheet.dart';
+import 'package:petvet/widget/navigator_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,9 +18,17 @@ class _MyAppState extends State<MyApp> {
       title: 'petvet',
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.redAccent
+        primaryColor: Colors.white
       ),
-      home: DefaultTabController(
+      home: Stack(
+        children: [
+          MyMap(),
+          Align(alignment: Alignment.bottomCenter,
+          child: MyNavigator(),),
+
+        ],
+      )
+      /*DefaultTabController(
         length: 4,
         child: Scaffold(
           body: TabBarView(
@@ -55,7 +62,9 @@ class _MyAppState extends State<MyApp> {
           ),
           bottomNavigationBar: Bottom(),
         ),
-      ),
+      ),*/
     );
   }
 }
+
+

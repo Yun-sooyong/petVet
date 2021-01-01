@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "392596647628",
+    "project_id": "petvet-fed58",
+    "storage_bucket": "petvet-fed58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392596647628:android:e74d7f9383bc87ba7d1c69",
+        "android_client_info": {
+          "package_name": "com.yunsooyong.petvet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392596647628-9vco6aa0an9d9qavflnqluiv9taqin2a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yunsooyong.petvet",
+            "certificate_hash": "0a18288d374687fc89509f79dde21a390515ef0c"
+          }
+        },
+        {
+          "client_id": "392596647628-jm3pph375rji7ddukoh06f6st7jdjopk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ_Z1B2E9duo1ggeRC0uAtqGE6FhBb1Ik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392596647628-jm3pph375rji7ddukoh06f6st7jdjopk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

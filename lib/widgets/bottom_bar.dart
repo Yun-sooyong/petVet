@@ -3,6 +3,41 @@ import 'package:flutter/material.dart';
 class Bottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /*DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            MyMap(),
+            // 주변
+            Container(),
+            //MyBottomSheet(),
+            Container(
+              alignment: Alignment.center,
+              color: Colors.purple,
+              child: Text(
+                'FAVORITE',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              // 길찾기
+            ), Container(
+              alignment: Alignment.center,
+              color: Colors.pinkAccent,
+              child: Text(
+                'FIND',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: Bottom(),
+      ),
+    ),*/
     return Container(
       height: 55,
       color: Colors.white,

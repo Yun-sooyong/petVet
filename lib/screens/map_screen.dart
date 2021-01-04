@@ -1,45 +1,48 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
-class MyMap extends StatelessWidget {
+class MapScreen extends StatefulWidget {
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
   GoogleMapController mapController;
+  LatLng _initialPosition = LatLng(126.734086, 127.269311);
+  Location location = Location();
 
-  LatLng seoul = LatLng(126.734086, 127.269311);
+  set locationSubscription(StreamSubscription<LocationData> locationSubscription) {}
 
-  Future<Position> getCurrentLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-    double lat = position.latitude;
-    double lon = position.longitude;
+  void _onMapCreated(GoogleMapController _ctrl) async {
+    mapController = await _ctrl;
 
-    LatLng currentLocation = LatLng(lat, lon);
-
-    return position;
-  }
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+    locationSubscription  = location.onLocationChanged.listen(
+      (event) {
+        mapController.animateCamera(
+          CameraUpdate.newCameraPosition(CameraPosition(
+              target: LatLng(event.latitude, event.longitude), zoom: 18)),
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return getCurrentLocation() != null
-        ? Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: GoogleMap(
-              initialCameraPosition:
-                  CameraPosition(target: seoul, zoom: 16),
-            ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          GoogleMap(
+            initialCameraPosition:
+                CameraPosition(target: _initialPosition, zoom: 16),
+            mapType: MapType.normal,
+            onMapCreated: _onMapCreated,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+            zoomControlsEnabled: false,
           )
-        : Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: GoogleMap(
-              initialCameraPosition: CameraPosition(target: seoul, zoom: 16),
-            ),
-          );
+        ],
+      ),
+    );
   }
 }

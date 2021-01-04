@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:petvet/screens/map_screen.dart';
 import 'home_screen.dart';
 
 String name;
@@ -81,10 +82,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     _signIn().whenComplete(() {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen(username: name)),
+                              builder: (context) => MapScreen()),
                           (Route<dynamic> route) => false);
                     }).catchError((onError) {
-                      Navigator.pushReplacementNamed(context, "/auth");
+                      Navigator.pushReplacementNamed(context, "/map");
                     });
                   },
                   child: Text(

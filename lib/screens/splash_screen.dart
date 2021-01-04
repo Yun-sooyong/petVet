@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
       );
     } else {
       Timer(Duration(seconds: 4),
-          () => Navigator.pushReplacementNamed(context, "/auth"));
+          () => Navigator.pushReplacementNamed(context, "/map"));
     }
   }
 

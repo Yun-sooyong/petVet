@@ -3,6 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-134245688/android.app_settings.iml" filepath="$PROJECT_DIR$/.idea/modules/-134245688/android.app_settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-292359690/android.firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/-292359690/android.firebase_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1792604818/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/-1792604818/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1795322849/android.flutter_plugin_android_lifecycle.iml" filepath="$PROJECT_DIR$/.idea/modules/-1795322849/android.flutter_plugin_android_lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/766161223/android.geolocator.iml" filepath="$PROJECT_DIR$/.idea/modules/766161223/android.geolocator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/854046672/android.google_maps_flutter.iml" filepath="$PROJECT_DIR$/.idea/modules/854046672/android.google_maps_flutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1883153681/android.google_sign_in.iml" filepath="$PROJECT_DIR$/.idea/modules/-1883153681/android.google_sign_in.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-440906502/android.location.iml" filepath="$PROJECT_DIR$/.idea/modules/-440906502/android.location.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1960174971/android.permission_handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1960174971/android.permission_handler.iml" />
     </modules>
   </component>
 </project>

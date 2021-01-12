@@ -10,18 +10,20 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController mapController;
   LatLng _initialPosition = LatLng(126.734086, 127.269311);
-  Location location = Location();
-
-  set locationSubscription(StreamSubscription<LocationData> locationSubscription) {}
+  Location _location = Location();
 
   void _onMapCreated(GoogleMapController _ctrl) async {
-    mapController = await _ctrl;
+    mapController = _ctrl;
 
-    locationSubscription  = location.onLocationChanged.listen(
+    _location.onLocationChanged.listen(
       (event) {
         mapController.animateCamera(
-          CameraUpdate.newCameraPosition(CameraPosition(
-              target: LatLng(event.latitude, event.longitude), zoom: 18)),
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: LatLng(event.latitude, event.longitude),
+              zoom: 16,
+            ),
+          ),
         );
       },
     );
@@ -30,18 +32,22 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition:
-                CameraPosition(target: _initialPosition, zoom: 16),
-            mapType: MapType.normal,
-            onMapCreated: _onMapCreated,
-            myLocationEnabled: true,
-            myLocationButtonEnabled: true,
-            zoomControlsEnabled: false,
-          )
-        ],
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            GoogleMap(
+              padding: EdgeInsets.only(left: 50),
+              initialCameraPosition: CameraPosition(target: _initialPosition),
+              mapType: MapType.normal,
+              onMapCreated: _onMapCreated,
+              myLocationEnabled: true,
+              zoomControlsEnabled: false,
+              myLocationButtonEnabled: false,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -11,7 +11,6 @@ String imageUrl;
 final FirebaseAuth auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
-
 class AuthScreen extends StatefulWidget {
   @override
   _AuthScreenState createState() => _AuthScreenState();
@@ -82,10 +81,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     _signIn().whenComplete(() {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => MapScreen()),
+                              builder: (context) => HomeScreen(username: name)),
                           (Route<dynamic> route) => false);
                     }).catchError((onError) {
-                      Navigator.pushReplacementNamed(context, "/map");
+                      Navigator.pushReplacementNamed(context, "/auth");
                     });
                   },
                   child: Text(

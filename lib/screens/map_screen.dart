@@ -38,7 +38,6 @@ class _MapScreenState extends State<MapScreen> {
         child: Stack(
           children: [
             GoogleMap(
-              padding: EdgeInsets.only(left: 50),
               initialCameraPosition: CameraPosition(target: _initialPosition),
               mapType: MapType.normal,
               onMapCreated: _onMapCreated,

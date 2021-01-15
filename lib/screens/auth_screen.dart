@@ -59,6 +59,7 @@ class _AuthScreenState extends State<AuthScreen> {
               Visibility(
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFB2F2D52)),
+
                 ),
                 visible: isVisible,
               )

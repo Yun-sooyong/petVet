@@ -60,6 +60,17 @@ class _BottomNaviState extends State<BottomNavi> {
             },
           ),
 
+          IconButton(
+            icon: Icon(
+              Icons.bookmark,
+              size: _iconSize,
+              color: _iconColor,
+            ),
+            onPressed: () {
+              // 주변 검색 즐겨찾기
+            },
+          ),
+
           // child<3> : 설정
           IconButton(
             icon: Icon(

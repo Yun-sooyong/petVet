@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // 로그인하면 home_screen 으로 이동하고 현재 유저의 이름을 전송
       // 로그인하지 않으면 로그인 페이지로 이동
       Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 1),
               () =>
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       (route) => false),
       );
     } else {
-      Timer(Duration(seconds: 4),
+      Timer(Duration(seconds: 1),
           () => Navigator.pushReplacementNamed(context, "/auth"));
     }
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:petvet/screens/map_screen.dart';
 import 'package:petvet/widgets/bottom_bar.dart';
+import 'package:petvet/widgets/menu_buttons.dart';
 import 'auth_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,29 +17,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello "+ widget.username),
+        title: Text("Yeah "+ widget.username),
         actions: <Widget>[
           // sign out 버튼
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
-              await googleSignIn.disconnect();
-              await googleSignIn.signOut();
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => AuthScreen()),
-                      (Route<dynamic> route) => false);
-            },
-          ),
+
         ],
       ),
       body: Stack(
         children: [
-          MapScreen(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BottomNavi(),
-          )
+          MenuButtons(),
+          //BottomNavi(),
         ],
       )
     );
@@ -69,3 +57,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),*/
+
+/*
+로그아웃 기능 iconbutton
+IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              await googleSignIn.disconnect();
+              await googleSignIn.signOut();
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => AuthScreen()),
+                      (Route<dynamic> route) => false);
+            },
+          ),
+ */

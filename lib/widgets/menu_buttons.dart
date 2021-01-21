@@ -25,49 +25,73 @@ class _MenuButtonsState extends State<MenuButtons> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-                width: _conSize,
-                height: _conSize,
-                margin: EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.grey[200], width: 0.5),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      )
-                    ]),
-                child: InkWell(
-                  onTap: () {
-                    Scaffold.of(context)
-                        .showSnackBar(SnackBar(content: Text('Tap')));
-                  },
-                )),
+              width: _conSize,
+              height: _conSize,
+              margin: EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey[100], width: 0.5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    )
+                  ]),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Icon(
+                      Icons.my_location,
+                      color: Colors.amber,
+                      size: 30,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text('Tap')));
+                    },
+                  )
+                ],
+              ),
+            ),
             Container(
-                width: _conSize,
-                height: _conSize,
-                margin: EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.grey[200], width: 0.5),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      )
-                    ]),
-                child: InkWell(
-                  onTap: () {
-                    Scaffold.of(context)
-                        .showSnackBar(SnackBar(content: Text('Tap')));
-                  },
-                )),
+              width: _conSize,
+              height: _conSize,
+              margin: EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey[100], width: 0.5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    )
+                  ]),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Icon(
+                      Icons.person_pin_circle_rounded,
+                      color: Colors.amber,
+                      size: 30,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text('Tap')));
+                    },
+                  ),
+                ],
+              ),
+            ),
             Container(
               width: _conSize,
               height: _conSize,
@@ -75,52 +99,69 @@ class _MenuButtonsState extends State<MenuButtons> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.grey[200], width: 0.5),
+                border: Border.all(color: Colors.grey[100], width: 0.5),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.grey.withOpacity(0.2),
                     spreadRadius: 5,
                     blurRadius: 7,
                     offset: Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
-              child: Container(),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Icon(
+                      Icons.star_border,
+                      color: Colors.amber,
+                      size: 30,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text('Tap')));
+                    },
+                  )
+                ],
+              ),
             ),
             Container(
-                width: _conSize,
-                height: _conSize,
-                margin: EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey[200], width: 0.5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    )
-                  ],
-                ),
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Icon(
-                        Icons.my_location,
-                        color: Colors.amber,
-                        size: 30,
-                      ),
+              width: _conSize,
+              height: _conSize,
+              margin: EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.grey[100], width: 0.5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  )
+                ],
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Icon(
+                      Icons.settings,
+                      color: Colors.amber,
+                      size: 30,
                     ),
-                    InkWell(
-                      onTap: () {
-                        Scaffold.of(context)
-                            .showSnackBar(SnackBar(content: Text('Tap')));
-                      },
-                    )
-                  ],
-                )),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text('Tap')));
+                    },
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

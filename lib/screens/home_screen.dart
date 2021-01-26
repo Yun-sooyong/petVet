@@ -25,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Stack(
         children: [
+          MapScreen(),
           MenuButtons(),
-          //BottomNavi(),
         ],
       )
     );

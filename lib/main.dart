@@ -16,7 +16,7 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'FaceBase',
+    title: '동물병원 지도 앱',
     routes: routes,
     home: SplashScreen(),
   ));

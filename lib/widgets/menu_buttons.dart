@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -6,8 +7,6 @@ class MenuButtons extends StatefulWidget {
 }
 
 class _MenuButtonsState extends State<MenuButtons> {
-  @override
-  void initState() {}
 
   @override
   Widget build(BuildContext context) {
@@ -25,141 +24,59 @@ class _MenuButtonsState extends State<MenuButtons> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: _conSize,
-              height: _conSize,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey[100], width: 0.5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    )
-                  ]),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Icon(
-                      Icons.my_location,
-                      color: Colors.amber,
-                      size: 30,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Scaffold.of(context)
-                          .showSnackBar(SnackBar(content: Text('Tap')));
-                    },
-                  )
-                ],
+              child: FloatingActionButton(
+                heroTag: null,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.my_location,
+                  size: 30,
+                  color: Colors.black38,
+                ),
+                onPressed: () {
+
+                },
               ),
             ),
             Container(
-              width: _conSize,
-              height: _conSize,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.grey[100], width: 0.5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    )
-                  ]),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Icon(
-                      Icons.person_pin_circle_rounded,
-                      color: Colors.amber,
-                      size: 30,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Scaffold.of(context)
-                          .showSnackBar(SnackBar(content: Text('Tap')));
-                    },
-                  ),
-                ],
+              child: FloatingActionButton(
+                heroTag: null,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.search,
+                  size: 30,
+                  color: Colors.black38,
+                ),
+                onPressed: () {
+
+                },
               ),
             ),
             Container(
-              width: _conSize,
-              height: _conSize,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.grey[100], width: 0.5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Icon(
-                      Icons.star_border,
-                      color: Colors.amber,
-                      size: 30,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Scaffold.of(context)
-                          .showSnackBar(SnackBar(content: Text('Tap')));
-                    },
-                  )
-                ],
+              child: FloatingActionButton(
+                heroTag: null,
+                backgroundColor: Colors.teal,
+                child: Icon(
+                  Icons.star,
+                  size: 30,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+
+                },
               ),
             ),
             Container(
-              width: _conSize,
-              height: _conSize,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.grey[100], width: 0.5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  )
-                ],
-              ),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Icon(
-                      Icons.settings,
-                      color: Colors.amber,
-                      size: 30,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Scaffold.of(context)
-                          .showSnackBar(SnackBar(content: Text('Tap')));
-                    },
-                  )
-                ],
+              child: FloatingActionButton(
+                heroTag: null,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.settings,
+                  size: 30,
+                  color: Colors.black38,
+                ),
+                onPressed: () {
+
+                },
               ),
             ),
           ],

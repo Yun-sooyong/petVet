@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:petvet/screens/map_screen.dart';
-import 'package:petvet/widgets/bottom_bar.dart';
 import 'package:petvet/widgets/menu_buttons.dart';
 import 'auth_screen.dart';
 

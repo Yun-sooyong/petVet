@@ -34,14 +34,14 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
+      child: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: GoogleMap(
           initialCameraPosition: _kGooglePlex,
           mapType: MapType.normal,
-          onMapCreated: (GoogleMapController controller){
+          onMapCreated: (GoogleMapController controller) {
             _controllerGoogleMap.complete(controller);
             newGoogleMapController = controller;
 
@@ -51,7 +51,6 @@ class _MapScreenState extends State<MapScreen> {
           myLocationButtonEnabled: false,
           zoomControlsEnabled: true,
           zoomGesturesEnabled: true,
-
         ),
       ),
     );

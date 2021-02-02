@@ -34,25 +34,49 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: GoogleMap(
-          initialCameraPosition: _kGooglePlex,
-          mapType: MapType.normal,
-          onMapCreated: (GoogleMapController controller) {
-            _controllerGoogleMap.complete(controller);
-            newGoogleMapController = controller;
+    return Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: GoogleMap(
+            initialCameraPosition: _kGooglePlex,
+            mapType: MapType.normal,
+            onMapCreated: (GoogleMapController controller) {
+              _controllerGoogleMap.complete(controller);
+              newGoogleMapController = controller;
 
-            locatePostion();
-          },
-          myLocationEnabled: true,
-          myLocationButtonEnabled: false,
-          zoomControlsEnabled: true,
-          zoomGesturesEnabled: true,
+              locatePostion();
+            },
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
+            zoomControlsEnabled: true,
+            zoomGesturesEnabled: true,
+          ),
         ),
-      ),
+        Align(
+          alignment: Alignment.topRight,
+          child: Container(
+            height: 60,
+            width: 60,
+            padding: EdgeInsets.all(10.0),
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              heroTag: 'recenter',
+              onPressed: () {
+                locatePostion();
+              },
+              child: Icon(
+                Icons.my_location,
+                color: Colors.grey,
+              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Color(0xFFECEDF1))),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

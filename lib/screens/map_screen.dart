@@ -16,6 +16,10 @@ class _MapScreenState extends State<MapScreen> {
   Position currentPostion;
   var geolocator = Geolocator();
 
+  static final CameraPosition _kGooglePlex =
+      CameraPosition(target: LatLng(126.734086, 127.269311), zoom: 16);
+
+  // 현재 위치로 이동하는 버튼
   void locatePostion() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
@@ -24,18 +28,20 @@ class _MapScreenState extends State<MapScreen> {
     LatLng latLngPosition = LatLng(position.latitude, position.longitude);
 
     CameraPosition cameraPostion =
-        new CameraPosition(target: latLngPosition, zoom: 16);
+    new CameraPosition(target: latLngPosition, zoom: 16);
     newGoogleMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPostion));
   }
-
-  static final CameraPosition _kGooglePlex =
-      CameraPosition(target: LatLng(126.734086, 127.269311), zoom: 16);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        Scaffold(
+          drawer: Drawer(
+
+          ),
+        ),
         Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:petvet/widgets/locatePosition.dart';
 
 class MapScreen extends StatefulWidget {
   _MapScreenState createState() => _MapScreenState();
@@ -28,7 +29,7 @@ class _MapScreenState extends State<MapScreen> {
     LatLng latLngPosition = LatLng(position.latitude, position.longitude);
 
     CameraPosition cameraPostion =
-    new CameraPosition(target: latLngPosition, zoom: 16);
+        new CameraPosition(target: latLngPosition, zoom: 16);
     newGoogleMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPostion));
   }
@@ -37,11 +38,6 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Scaffold(
-          drawer: Drawer(
-
-          ),
-        ),
         Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -56,7 +52,7 @@ class _MapScreenState extends State<MapScreen> {
             },
             myLocationEnabled: true,
             myLocationButtonEnabled: false,
-            zoomControlsEnabled: true,
+            zoomControlsEnabled: false,
             zoomGesturesEnabled: true,
           ),
         ),
@@ -77,8 +73,11 @@ class _MapScreenState extends State<MapScreen> {
                 color: Colors.grey,
               ),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  side: BorderSide(color: Color(0xFFECEDF1))),
+                borderRadius: BorderRadius.circular(10.0),
+                side: BorderSide(
+                  color: Color(0xFFECEDF1),
+                ),
+              ),
             ),
           ),
         ),

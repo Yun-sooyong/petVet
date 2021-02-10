@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:petvet/screens/map_screen.dart';
-import 'package:petvet/widgets/menu_buttons.dart';
+import 'package:petvet/widgets/locatePosition.dart';
 import 'auth_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String username;
+
   HomeScreen({Key key, @required this.username}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -15,20 +17,41 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Yeah "+ widget.username),
-        actions: <Widget>[
-          // sign out 버튼
-
-        ],
-      ),
-      body: Stack(
-        children: [
-          MapScreen(),
-          MenuButtons(),
-        ],
-      )
-    );
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Text("Yeah " + widget.username),
+          actions: <Widget>[
+            // sign out 버튼
+            Container(
+              height: 60,
+              width: 60,
+              padding: EdgeInsets.all(10.0),
+              child: FloatingActionButton(
+                backgroundColor: Colors.white,
+                heroTag: 'position',
+                onPressed: () {
+                  locatePostion();
+                },
+                child: Icon(
+                  Icons.my_location,
+                  color: Colors.grey,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(
+                    color: Color(0xFFECEDF1),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        body: Stack(
+          children: [
+            MapScreen(),
+            //MenuButtons(),
+          ],
+        ));
   }
 }
 

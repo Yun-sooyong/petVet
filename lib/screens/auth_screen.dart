@@ -80,11 +80,10 @@ class _AuthScreenState extends State<AuthScreen> {
                       this.isVisible = true;
                     });
                     _signIn().whenComplete(() {
-                      /*Navigator.of(context).pushAndRemoveUntil(
+                      Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                               builder: (context) => HomeScreen(username: name)),
-                          (Route<dynamic> route) => false);*/
-                      Navigator.pushReplacementNamed(context, "/map");
+                          (Route<dynamic> route) => false);
                     }).catchError((onError) {
                       Navigator.pushReplacementNamed(context, "/auth");
                     });

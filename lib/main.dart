@@ -16,7 +16,7 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarBrightness: Brightness.dark));
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: '동물병원 지도 앱',
+    title: 'Hot Dogs Place',
     routes: routes,
     home: SplashScreen(),
   ));

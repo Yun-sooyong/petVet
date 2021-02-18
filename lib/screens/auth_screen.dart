@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'home_screen.dart';
 
+/*
 String name;
 String email;
 String imageUrl;
+*/
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -20,23 +21,23 @@ class _AuthScreenState extends State<AuthScreen> {
   bool isVisible = false;
 
   Future<User> _signIn() async {
-    await Firebase.initializeApp();
+    //await Firebase.initializeApp();
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
+
     final AuthCredential credential = GoogleAuthProvider.credential(
       idToken: googleSignInAuthentication.idToken,
       accessToken: googleSignInAuthentication.accessToken,
     );
-    // final AuthResult authResult = await auth.signInWithCredential(credential);
-    // final User user = authResult.user;
 
     User user = (await auth.signInWithCredential(credential)).user;
-    if (user != null) {
+
+    /*if (user != null) {
       name = user.displayName;
       email = user.email;
       imageUrl = user.photoURL;
-    }
+    }*/
     return user;
   }
 
@@ -46,25 +47,26 @@ class _AuthScreenState extends State<AuthScreen> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
+          // 로그인 페이지 로고
           Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("images/flutterwithlogo.png"),
                     fit: BoxFit.fitWidth)),
           ),
+          // 로그인 인디케이터
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Visibility(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFB2F2D52)),
-
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Visibility(
+                  child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Color(0xFFB2F2D52)),
+                  ),
+                  visible: isVisible,
                 ),
-                visible: isVisible,
-              )
-            ],
-          ),
+              ]),
           Container(
             margin: const EdgeInsets.only(
               bottom: 60.0,
@@ -80,23 +82,22 @@ class _AuthScreenState extends State<AuthScreen> {
                       this.isVisible = true;
                     });
                     _signIn().whenComplete(() {
-                      Navigator.of(context).pushAndRemoveUntil(
+                      /*Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen(username: name)),
-                          (Route<dynamic> route) => false);
+                              builder: (context) => HomeScreen(*//*username: name*//*)),
+                          (Route<dynamic> route) => false);*/
+                      Navigator.pushReplacementNamed(context, "/home");
                     }).catchError((onError) {
                       Navigator.pushReplacementNamed(context, "/auth");
                     });
                   },
                   child: Text(
-                    ' Continue With Google',
+                    'G',
                     style: TextStyle(fontSize: 16),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
-                  ),
+                  shape: CircleBorder(),
                   elevation: 5,
-                  color: Color(0XFFF7C88C),
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -106,3 +107,5 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 }
+
+

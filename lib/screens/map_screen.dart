@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:petvet/widgets/locatePosition.dart';
 
 class MapScreen extends StatefulWidget {
   _MapScreenState createState() => _MapScreenState();
@@ -20,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   static final CameraPosition _kGooglePlex =
       CameraPosition(target: LatLng(126.734086, 127.269311), zoom: 16);
 
-  // 현재 위치로 이동하는 버튼
+  // 현재 위치로 이동
   void locatePostion() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);

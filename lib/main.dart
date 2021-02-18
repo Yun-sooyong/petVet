@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:petvet/screens/auth_screen.dart';
+import 'package:petvet/screens/home_screen.dart';
 import 'package:petvet/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 var routes = <String, WidgetBuilder>{
   "/auth": (BuildContext context) => AuthScreen(),
+  "/home": (BuildContext context) => HomeScreen(),
 };
 
 void main() async {

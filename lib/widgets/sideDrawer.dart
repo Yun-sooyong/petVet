@@ -4,7 +4,7 @@ import 'package:petvet/screens/auth_screen.dart';
 class sideDrawer extends StatefulWidget {
   final String name;
 
-  sideDrawer({Key key, @required this.name}):super(key: key);
+  sideDrawer({Key key, this.name}):super(key: key);
 
   @override
   _sideDrawerState createState() => _sideDrawerState();

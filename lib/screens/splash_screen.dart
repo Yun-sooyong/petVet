@@ -38,16 +38,16 @@ class _SplashScreenState extends State<SplashScreen> {
       // 로그인하면 home_screen 으로 이동하고 현재 유저의 이름을 전송
       // 로그인하지 않으면 로그인 페이지로 이동
       Timer(
-        Duration(seconds: 1),
+        Duration(seconds: 3),
               () =>
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                       builder: (context) =>
-                      HomeScreen(username: _auth.currentUser.displayName)),
+                      HomeScreen(/*username: _auth.currentUser.displayName*/)),
                       (route) => false),
       );
     } else {
-      Timer(Duration(seconds: 1),
+      Timer(Duration(seconds: 3),
           () => Navigator.pushReplacementNamed(context, "/auth"));
     }
   }
@@ -55,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
           child: Container(

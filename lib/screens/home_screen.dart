@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:petvet/widgets/roundSquareButton.dart';
 import 'dart:async';
-
 //import 'package:petvet/screens/map_screen.dart';
 import 'package:petvet/widgets/sideDrawer.dart';
 import 'package:geolocator/geolocator.dart';
@@ -10,8 +10,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 * - 토글 버튼 만들기
 *    참고 => https://www.woolha.com/tutorials/flutter-using-togglebuttons-widget-examples
-* - 햄버거 버튼, 현재 위치 버튼 위젯에 따로 만들기 => extends raiseButton
+
 * - drawer 세부 만들기
+
+* - auth screen 에서 로그인용 버튼 위젯에 따로 만들기 => extends raiseButton
+     => 구글, 트위터, 페이스북, 애플
+
+* - 맵 마커 만들기
+* - 맵 마커와 토글 버튼 연계
 * */
 
 class HomeScreen extends StatefulWidget {
@@ -35,18 +41,18 @@ class _HomeScreenState extends State<HomeScreen> {
   static final CameraPosition _kGooglePlex =
       CameraPosition(target: LatLng(126.734086, 127.269311), zoom: 16);
 
-  // 현재 위치로 이동
-  void locatePostion() async {
+  // 실행하면 현재의 위치를 가져와서 해당 위치로 카메라를 이동시킴
+  void locatePosition() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     currentPostion = position;
 
     LatLng latLngPosition = LatLng(position.latitude, position.longitude);
 
-    CameraPosition cameraPostion =
+    CameraPosition cameraPosition =
         new CameraPosition(target: latLngPosition, zoom: 16);
     newGoogleMapController
-        .animateCamera(CameraUpdate.newCameraPosition(cameraPostion));
+        .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
 
   @override
@@ -59,56 +65,31 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         // 햄버거 버튼
-        leading: Container(
-          height: 60,
-          width: 60,
-          padding: EdgeInsets.fromLTRB(10, 23, 10, 10),
-          child: FloatingActionButton(
-            backgroundColor: Colors.white,
-            heroTag: 'openDrawer',
-            onPressed: () {
-              setState(() {
-                sideDrawer();
-              });
-              _scaffoldKey.currentState.openDrawer();
-            },
-            child: Icon(
-              Icons.menu_rounded,
-              color: Colors.redAccent,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              side: BorderSide(
-                color: Color(0xFFECEDF1),
-              ),
-            ),
+        leading: RoundSquareButton(
+          tag: 'openDrawer',
+          child: Icon(
+            Icons.menu_rounded,
+            color: Colors.redAccent,
           ),
+          onTap: () {
+            setState(() {
+              sideDrawer();
+            });
+            _scaffoldKey.currentState.openDrawer();
+          },
         ),
 
-        // 현재 위치 버튼
+        // 현재 위치로 이동하는 버튼
         actions: [
-          Container(
-            height: 60,
-            width: 60,
-            padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
-            margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: FloatingActionButton(
-              backgroundColor: Colors.white,
-              heroTag: 'recenter',
-              onPressed: () {
-                locatePostion();
-              },
-              child: Icon(
-                Icons.my_location,
-                color: Colors.redAccent,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                side: BorderSide(
-                  color: Color(0xFFECEDF1),
-                ),
-              ),
+          RoundSquareButton(
+            tag: 'recenter',
+            child: Icon(
+              Icons.my_location,
+              color: Colors.redAccent,
             ),
+            onTap: (){
+              locatePosition();
+            },
           ),
         ],
       ),
@@ -125,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 _controllerGoogleMap.complete(controller);
                 newGoogleMapController = controller;
 
-                locatePostion();
+                locatePosition();
               },
               myLocationEnabled: true,
               myLocationButtonEnabled: false,

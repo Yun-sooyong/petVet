@@ -58,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
       home: Scaffold(
         body: Center(
           child: Container(
-            color: Color.fromRGBO(102, 255, 153, 100),
+            color: Colors.redAccent,
           ),
         ),
       ),

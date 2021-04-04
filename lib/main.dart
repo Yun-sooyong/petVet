@@ -20,6 +20,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     title: 'Hot Dogs Place',
     routes: routes,
+    color: Colors.black,
     home: SplashScreen(),
   ));
 }

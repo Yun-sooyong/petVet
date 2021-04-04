@@ -1,4 +1,4 @@
-# petvet
+# Just Map
 
 A new Flutter application.
 

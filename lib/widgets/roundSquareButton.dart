@@ -21,7 +21,7 @@ class RoundSquareButton extends StatelessWidget {
     return Container(
       height: length,
       width: length,
-      padding: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 10.0),
+      margin: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 10.0),
       child: FloatingActionButton(
         child: child,
         backgroundColor: foregroundColor,

@@ -84,7 +84,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     _signIn().whenComplete(() {
                       /*Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen(*//*username: name*//*)),
+                              builder: (context) => HomeScreen(username: name)),
                           (Route<dynamic> route) => false);*/
                       Navigator.pushReplacementNamed(context, "/home");
                     }).catchError((onError) {
